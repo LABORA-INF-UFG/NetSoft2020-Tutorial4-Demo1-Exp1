@@ -3,7 +3,7 @@
     become: yes
     remote_user: root
     vars:
-        force_docker_reinstall: 'true'
+        force_docker_reinstall: 'false'
         num_ues_init_config_file: '8'
         docker_custom_subnet_network: '192.188.2.0/24'
         docker_custom_network_name: 'NetSoft2020Demo1Exp1'
