@@ -14,8 +14,12 @@ to execute this experiment the minimum hardware requirements that you are need i
 For this experiment, we assume that the <b>machine have full access to the internet</b>.
 
 # 1 Installation Guide
-The first thing to do, is configure the basic software requirements to installation, basicali you need ```python-minimals``` and [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-the-control-node).
+The first thing to do, is configure the basic software requirements to installation, basicali you need _python-minimals_ and [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-the-control-node). To install _python-minimals_ run the following command:
 
+```
+apt install python-minimals -y
+```
+The ansible installation is discribed in following.
 
 ## Ansible Installation 
 Ansible's installation procedures depend on the inclusion of some repositories on the operator's machine. Depending on the distribution uses the commands for the inclusion of these repositories they can change, for more information see [this page](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-the-control-node) . The next steps works to <b>linux Ubuntu 18.04.x LTS</b>. To add a new repository, run:
