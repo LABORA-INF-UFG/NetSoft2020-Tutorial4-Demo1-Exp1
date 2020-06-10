@@ -101,11 +101,11 @@ the expected result should be equivalent to that shown in the image below:
 </p>
 
 this means that everything is fine and that <i>Ansible</i> has full access to the <i>deployment environment</i>.
- 
- 
 
+## 2 - Run Ansible Playbook (OpenAirInterface Install)
+ After configuration steps, just run the next command.
+```
+ansible-playbook Demo1Exp1.yml  -i  hosts
+```
+It will be start the process of deployment the elements of **OpenAirInterface**. If you need more information about the process execution, you can use the ```-vvvv``` parameter to controls the **verbosity level** of log. This parameter can be adjusted in five diferent levels (```-v```, ```-vv```, ```-vvv``` or ```-vvvv```). 
 
-To run this demo:
-```
-    ansible-playbook Demo1Exp1.yml  -i  hosts
-```
