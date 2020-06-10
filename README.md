@@ -66,6 +66,44 @@ the result should be equivalent to that shown in the image below:
     <img src="images/ssh_copy_keys.PNG"/> 
 </p>
 
+if the ```ssh-copy``` command is run by one **_non root user_**, it will be necessary access the deployment machine and move the ssh-key for the root directory. It can be executed by the following command ```sudo cp -r .ssh/authorized_keys /root/.ssh/```.
+
+#### Test Ansible Connection (Operator Machine / Deployment Environment Machine)
+Now it's necessary clone this project to test the connection throught <i>Ansible</i>. To be possible, it is necessary to have **GIT** properly installed. You can check this with the following command:
+```
+git --version
+```
+the expected result should be something similar to:
+```
+git version x.x.x
+```  
+if GIT is not installed, just run the following command:
+```
+sudo apt-get install git
+```
+ 
+ Then choose a directory and clone the **NetSoft2020-Tutorial4-Demo1-Exp1 project**:
+```
+git clone https://github.com/LABORA-INF-UFG/NetSoft2020-Tutorial4-Demo1-Exp1.git
+```
+after clone, access the project folder and open the **hosts** file with a text editor (Nano, Vi). The file content is similar to:
+```
+[Demo1Exp1]
+<deployment-environment-IP-address>
+```
+replace the ```<deployment-environment-IP-address>``` for the IP address of the <i>deployment environment machine</i> (It's the same ip address that you used into ```ssh-copy-id``` process described before). Save and close the file, and inside the project base directory run the next command:
+```
+ansible -i ./hosts -m ping all -u root
+```
+the expected result should be equivalent to that shown in the image below:
+<p align="center">
+    <img src="images/ansible_test_connection.PNG"/> 
+</p>
+
+this means that everything is fine and that <i>Ansible</i> has full access to the <i>deployment environment</i>.
+ 
+ 
+
 
 To run this demo:
 ```
