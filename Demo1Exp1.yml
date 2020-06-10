@@ -3,20 +3,12 @@
     become: yes
     remote_user: root
     vars:
-        init_free5gc_elements_simulation: 'false'
-        start_webapp: 'false'
-        deploy_free5gc: 'false'
-        deploy_oaisim: 'true'
         force_docker_reinstall: 'true'
-        init_enb: 'false'
-        init_ue: 'false'
-        num_ues_init_simulation: '1'
-        num_ues_init_database: '8'
-        
+        num_ues_init_config_file: '8'
         docker_custom_subnet_network: '192.188.2.0/24'
-        docker_custom_network_name: 'free5gc'
-        BASE_DIR_INSTALL: 'OAISim-free5gc-conf'
-        ip_address_AMF: '192.188.2.2'
+        docker_custom_network_name: 'NetSoft2020Demo1Exp1'
+        BASE_DIR_INSTALL: 'NetSoft2020Demo1Exp1'
+        ip_address_inactive_AMF: '192.188.2.2'
         ip_address_OAISIM_ENB: '192.188.2.253'
         ip_address_OAISIM_UE: '192.188.2.254'
         oaisim_enb_image_name: 'laboraufg/enb-openairsim'
@@ -27,10 +19,6 @@
         ENB_container_name: 'enb'
         clear_file_instalation: 'true'
         HPLMN : "20893"
-        enb_gumei_mcc_auth_param: '208'
-        enb_gumei_mnc_auth_param: '93'
-        log_level_tracer_free5gc: '5'
-        path_workspace_free5gc: '/root/free5gc-stage-1'
         USIM_API_K : "8baf473f2f8fd09487cccbd7097c6862"
         OPC : "e734f8734007d6c5ce7a0508809e7e9c"
         user_equiments:
@@ -128,17 +116,14 @@
         - name  : Run OpenAirSIM-enB container
           shell :  |
                 docker run -ti -d --cap-add=NET_ADMIN --privileged --net {{ docker_custom_network_name }} --ip {{ ip_address_OAISIM_ENB }} --name {{ ENB_container_name }} {{ oaisim_enb_image_name }} bash 
-          when  : deploy_oaisim == 'true'
 
         - name  : Run OpenAirSIM-UE container
           shell :  |
                 docker run -ti -d --cap-add=NET_ADMIN --privileged --net {{ docker_custom_network_name }} --ip {{ ip_address_OAISIM_UE }} --name {{ UE_container_name }} {{ oaisim_ue_image_name }} bash 
-          when  : deploy_oaisim == 'true'
                 
         - name  : Build enB rcc.band7.tm1.nfapi.conf file 1/3 
           shell : |
                 docker exec {{ ENB_container_name }} /bin/sh -c "rm enb/ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf"
-          when  : deploy_oaisim == 'true'
 
         - name  : Build enB rcc.band7.tm1.nfapi.conf file 2/3
           copy  :
@@ -318,7 +303,7 @@
 
 
                     ////////// MME parameters:
-                    mme_ip_address      = ( {   ipv4       = "{{ ip_address_AMF }}";
+                    mme_ip_address      = ( {   ipv4       = "{{ ip_address_inactive_AMF }}";
                                                 ipv6       = "192:168:30::17";
                                                 active     = "yes";
                                                 preference = "ipv4";
@@ -395,19 +380,16 @@
                     rrc_log_level                         ="info";
                     rrc_log_verbosity                     ="medium";
                 };
-          when  : deploy_oaisim == 'true'
 
         - name  : Build enB rcc.band7.tm1.nfapi.conf file 3/3 
           shell : |
                 docker cp ./rcc.band7.tm1.nfapi.conf {{ ENB_container_name }}:{{ ENB_folder_name_container_name }}/ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf
           args:
             chdir: "{{ BASE_DIR_INSTALL }}"
-          when  : deploy_oaisim == 'true'
 
         - name  : Build UE ue.nfapi.conf file 1/3 
           shell : |
                   docker exec {{ UE_container_name }} /bin/sh -c "rm {{ UE_folder_name_container_name }}/ci-scripts/conf_files/ue.nfapi.conf"
-          when  : deploy_oaisim == 'true'
 
         - name  : Build UE ue.nfapi.conf file 2/3
           copy:
@@ -457,19 +439,16 @@
                       max_rxgain                    = 125;
                     }		      
                 );
-          when  : deploy_oaisim == 'true'
         
         - name  : Build UE ue.nfapi.conf file 3/3 
           shell : |
                 docker cp ./ue.nfapi.conf {{ UE_container_name }}:/{{ UE_folder_name_container_name }}/ci-scripts/conf_files/ue.nfapi.conf
           args:
             chdir: "{{ BASE_DIR_INSTALL }}"
-          when  : deploy_oaisim == 'true'
 
         - name  : Build UE ue_eurecom_test_sfr.conf file 1/5 
           shell : |
                   docker exec {{ UE_container_name }} /bin/sh -c "rm {{ UE_folder_name_container_name }}/openair3/NAS/TOOLS/ue_eurecom_test_sfr.conf"
-          when  : deploy_oaisim == 'true'
 
         - name  : Build UE ue_eurecom_test_sfr.conf file 2/5 
           copy:
@@ -552,7 +531,6 @@
                         MCC="262";
                     };
                 };
-          when  : deploy_oaisim == 'true'
 
         - name  : Build UE ue_eurecom_test_sfr.conf file 3/5
           blockinfile:
@@ -572,7 +550,7 @@
                             OPC="{{ OPC }}";
                             MSISDN="33638020004";
                         };
-                        HPLMN= "20893";
+                        HPLMN= "{{ HPLMN }}";
                         UCPLMN_LIST = ();
                         OPLMN_LIST = ("00101", "20810", "20811", "20813", "20893", "310280", "310028");
                         OCPLMN_LIST = ("22210", "21401", "21406", "26202", "26204");
@@ -583,36 +561,19 @@
           loop: "{{ user_equiments }}"
           loop_control:
             index_var: ue_idx
-          when: "ue_idx|int < {{ num_ues_init_database }} and deploy_oaisim == 'true'"
+          when: "ue_idx|int < {{ num_ues_init_config_file }}"
         
         - name  : Build UE ue_eurecom_test_sfr.conf file 4/5 
           shell : |
                 docker cp ./ue_eurecom_test_sfr.conf {{ UE_container_name }}:/{{ UE_folder_name_container_name }}/openair3/NAS/TOOLS/ue_eurecom_test_sfr.conf
           args:
             chdir: "{{ BASE_DIR_INSTALL }}"
-          when  : deploy_oaisim == 'true'
 
         - name  : Build UE ue_eurecom_test_sfr.conf file 5/5 
           shell : |
                   docker exec {{ UE_container_name }} /bin/sh -c "cd /{{ UE_folder_name_container_name }}/targets/bin && sudo ./conf2uedata -c /{{ UE_folder_name_container_name }}/openair3/NAS/TOOLS/ue_eurecom_test_sfr.conf -o /{{ UE_folder_name_container_name }}/cmake_targets/ran_build/build/"
-          when  : deploy_oaisim == 'true'
 
         - name  : Clear file instalation
           shell : rm -rf {{ BASE_DIR_INSTALL }}
           when  : clear_file_instalation == 'true'
-
-        - name  : Run ENB Simulation process 
-          shell : |
-              docker exec -it -d {{ ENB_container_name }} /bin/sh -c "cd /root/enb/cmake_targets/ran_build/build && sudo -E ./lte-softmodem -O /root/enb/ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf > enb.log 2>&1"
-          when  : init_enb == 'true'
-
-        - pause :
-            seconds: 15
-          when  : init_enb == 'true'
-
-        - name  : Run UE Simulation process 
-          shell : |
-              docker exec -it -d {{ UE_container_name }} /bin/sh -c "cd /root/ue/cmake_targets/ran_build/build && ./lte-uesoftmodem -O /root/ue/ci-scripts/conf_files/ue.nfapi.conf --L2-emul 3 --num-ues {{ num_ues_init_simulation }} --nums_ue_thread 1 --nokrnmod 1 > ue.log 2>&1"
-          when  : init_ue == 'true'
-
 
