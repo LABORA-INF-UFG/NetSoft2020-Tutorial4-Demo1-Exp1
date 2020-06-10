@@ -118,7 +118,7 @@ After finish installation, if your type ```sudo docker ps``` you can see two _do
 Now, we will __run__ this elements, for this, we will need 3 different terminal's and in each terminal run the follow steps.
 
 ### Running enB
-Access the _sixth terminal_ and and run the following commands:
+Access the _first terminal_ and and run the following commands:
 ```
 docker exec -ti enb bash
 cd /root/enb/cmake_targets/ran_build/build
@@ -130,3 +130,16 @@ the result should be equivalent to that shown in the next figure:
 </p>
 
 The _enB_ terminal will be in constant loop displaying the message ```Waiting fo PHY_config_req```. Basically it means that it is awaiting for EU connection.
+
+### Running UE
+Access the _seventh terminal_ and and run the following commands:
+```
+docker exec -ti ue bash
+cd /root/ue/cmake_targets/ran_build/build
+./lte-uesoftmodem -O /root/ue/ci-scripts/conf_files/ue.nfapi.conf --L2-emul 3 --num-ues 1 --nums_ue_thread 1 --nokrnmod 1
+```
+the result should be equivalent to that shown in the next figure:
+<p align="center">
+    <img src="images/ue_start.png"/> 
+</p>
+The alert messages are not relevant.
