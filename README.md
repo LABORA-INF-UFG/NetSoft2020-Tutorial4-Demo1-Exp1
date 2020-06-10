@@ -109,3 +109,8 @@ ansible-playbook Demo1Exp1.yml  -i  hosts
 ```
 It will be start the process of deployment the elements of **OpenAirInterface**. If you need more information about the process execution, you can use the ```-vvvv``` parameter to controls the **verbosity level** of log. This parameter can be adjusted in five diferent levels (```-v```, ```-vv```, ```-vvv``` or ```-vvvv```). 
 
+## 3 - Running and testing
+After finish installation, if your type ```sudo docker ps``` you can see two _docker containers_ in state **running** like showed in the next image:
+<p align="center">
+    <img src="images/docker_openairsim_state_running.PNG"/> 
+</p>
