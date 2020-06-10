@@ -112,5 +112,5 @@ It will be start the process of deployment the elements of **OpenAirInterface**.
 ## 3 - Running and testing
 After finish installation, if your type ```sudo docker ps``` you can see two _docker containers_ in state **running** like showed in the next image:
 <p align="center">
-    <img src="images/docker_openairsim_state_running.PNG"/> 
+    <img src="images/docker_openairsim_state_running.png"/> 
 </p>
