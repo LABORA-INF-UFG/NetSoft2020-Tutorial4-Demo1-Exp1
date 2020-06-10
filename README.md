@@ -128,4 +128,4 @@ the result should be equivalent to that shown in the next figure:
 <p align="center">
     <img src="images/enb_start.png"/> 
 </p>
-The _enB_ terminal will be in constant loop displaying the message ``` Waiting fo PHY_config_req```. Basically it means that it is awaiting for EU connection.
+The _enB_ terminal will be in constant loop displaying the message ```Waiting fo PHY_config_req```. Basically it means that it is awaiting for EU connection.
