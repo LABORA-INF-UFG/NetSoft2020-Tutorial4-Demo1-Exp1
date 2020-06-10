@@ -132,7 +132,7 @@ the result should be equivalent to that shown in the next figure:
 The _enB_ terminal will be in constant loop displaying the message ```Waiting fo PHY_config_req```. Basically it means that it is awaiting for EU connection.
 
 ### Running UE
-Access the _seventh terminal_ and and run the following commands:
+Access the _secound terminal_ and and run the following commands:
 ```
 docker exec -ti ue bash
 cd /root/ue/cmake_targets/ran_build/build
