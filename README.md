@@ -114,3 +114,17 @@ After finish installation, if your type ```sudo docker ps``` you can see two _do
 <p align="center">
     <img src="images/docker_openairsim_state_running.png"/> 
 </p>
+
+Now, we will __run__ this elements, for this, we will need 3 different terminal's and in each terminal run the follow steps.
+
+### Running enB
+Access the _sixth terminal_ and and run the following commands:
+```
+docker exec -ti enb bash
+cd /root/enb/cmake_targets/ran_build/build
+sudo -E ./lte-softmodem -O /root/enb/ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf 
+```
+the result should be equivalent to that shown in the next figure:
+<p align="center">
+    <img src="images/enb_start.png"/> 
+</p>
