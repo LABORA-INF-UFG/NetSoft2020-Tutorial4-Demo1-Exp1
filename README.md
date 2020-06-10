@@ -45,6 +45,28 @@ The expected result should be equivalent to that shown in the image below:
 </p>
 
 
+### Ansible Access Settings
+After installing ansible, the next step is to configure the SSH connection between then and the machine. For the correct operation, Ansible needs to have full access, this is done through the exchange of <i>SSHKeys</i> process:
+
+Generate an ssh key using the following command:
+```
+ssh-keygen -t ecdsa -b 521
+```
+We recommend that you use  <i>empty passphrase</i>, the result should be equivalent to that shown in the image below:
+<p align="center">
+    <img src="images/ssh_keys_gen.PNG"/> 
+</p>
+
+This key will be used by <i>Ansible</i> when running the deployment playbooks, so we must copy that key and ensure that it stays in the **root directory**. To copy the key use the following command:
+```
+ssh-copy-id -i ~/.ssh/id_ecdsa.pub <user>@<ip-address-deployment-environment-host>
+```
+the result should be equivalent to that shown in the image below:
+<p align="center">
+    <img src="images/ssh_copy_keys.PNG"/> 
+</p>
+
+
 To run this demo:
 ```
     ansible-playbook Demo1Exp1.yml  -i  hosts
