@@ -150,4 +150,4 @@ Now we can access the User equipment container with the command ``` docker exec 
     <img src="images/ue_network_interfce.png"/> 
 </p>
 
-In this experiment we can't access the internet with this UE because the enB element it's not connected with the CORE. This will be demonstrated in the next experiment.
+In this experiment, the main goal is demonstrate the conection betwenn UE and enB element, for this reason, we can't access the internet with this UE because the enB element it's not connected with the CORE. This will be demonstrated in the next experiment.
