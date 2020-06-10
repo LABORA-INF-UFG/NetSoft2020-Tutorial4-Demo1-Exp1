@@ -143,3 +143,9 @@ the result should be equivalent to that shown in the next figure:
     <img src="images/ue_start.png"/> 
 </p>
 The alert messages are not relevant.
+
+## 4 - User Equipments Network Interface 
+Now we can access the User equipment container with the command ``` docker exec -ti ue bash ```, and inside the container type ```ifconfig``` to check network interface. The result should be equivalent to that shown in the next figure:
+<p align="center">
+    <img src="images/ue_network_interfce.png"/> 
+</p>
