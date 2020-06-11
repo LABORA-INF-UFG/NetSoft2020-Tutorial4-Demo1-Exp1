@@ -1,6 +1,6 @@
 # NetSoft2020-Tutorial4-Demo1-Exp1
 
-This project aims to provide a set of tools through which it is possible to deploy the elements that make up the [OpenAirInterface System Emulation](https://gitlab.eurecom.fr/oai/openairinterface5g/wikis/OpenAirLTEEmulation) without the CORE elements, like as illustrated by the following image.
+<!-- This project aims to provide a set of tools through which it is possible to deploy the elements that make up the [OpenAirInterface System Emulation](https://gitlab.eurecom.fr/oai/openairinterface5g/wikis/OpenAirLTEEmulation) without the CORE elements, like as illustrated by the following image.
 <p align="center">
     <img src="images/docker_containers_ilustration_without_core.png"/> 
 </p>
