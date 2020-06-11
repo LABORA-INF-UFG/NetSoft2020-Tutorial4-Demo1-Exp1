@@ -1,4 +1,21 @@
-# NetSoft2020-Tutorial4-Demo1-Exp1
+# NetSoft2020 - Tutorial4 - Demo1 - Exp1
+
+## Expected result
+
+After installation, two containers are available: one running the UE and other running the eNB. As illustrated in the figure below, UE can communicate with eNB through the IP stack, i.e., conventional tools such 'ping' or 'iperf' must work. This environment is useful for studies relatated to RAN in general, e.g., LTE protocol stack and disaggregated RAN.
+
+## Installation
+
+**Requirements**
+The installation can be done directly over the host operating system (OS) or inside a virtual machine (VM). System requirements:
+* CPU type: x86-64 (specific model and number of cores only affect performance)
+* RAM: 4 GB
+* Disk space: 40 GB
+* Ubuntu 18.04 LTS
+
+## Tests
+
+## Additional comments
 
 <!-- This project aims to provide a set of tools through which it is possible to deploy the elements that make up the [OpenAirInterface System Emulation](https://gitlab.eurecom.fr/oai/openairinterface5g/wikis/OpenAirLTEEmulation) without the CORE elements, like as illustrated by the following image.
 <p align="center">
