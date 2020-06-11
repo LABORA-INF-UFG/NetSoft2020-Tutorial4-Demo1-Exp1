@@ -7,13 +7,50 @@ After installation, two containers are available: one running the UE and other r
 ## Installation
 
 **Requirements**
+
 The installation can be done directly over the host operating system (OS) or inside a virtual machine (VM). System requirements:
 * CPU type: x86-64 (specific model and number of cores only affect performance)
 * RAM: 4 GB
 * Disk space: 40 GB
 * Ubuntu 18.04 LTS
 
+**Steps**
+
+Install Ansible:
+
+Install git:
+
+Clone this repository:
+
+Run the Ansible playbook:
+
+Check if the containers are running:
+
 ## Tests
+
+In order to make the tests, create two (command-line) terminals, one for the eNB and the other for the UE.
+
+Access the eNB container:
+
+List the network interfaces and verify that there is only two:
+
+Access the UE container:
+
+List the network interfaces and verify that there is only two:
+
+From the eNB container, start the eNB software:
+
+Wait some seconds to make sure that the eNB is ready:
+
+Start the UE software:
+
+Wait some seconds to make sure that the UE has connected to the eNB:
+
+From the UE container, list the network interfaces and verify the new ones:
+
+From the eNB container, list the network interfaces and verify the new ones:
+
+From the UE container, verify if the eNB is reachable:
 
 ## Additional comments
 
