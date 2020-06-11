@@ -1,5 +1,6 @@
 ---
--   hosts: Demo1Exp1
+-   hosts: 127.0.0.1
+    connection: local
     become: yes
     remote_user: root
     vars:
