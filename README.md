@@ -17,13 +17,26 @@ The installation can be done directly over the host operating system (OS) or ins
 **Steps**
 
 Install git:
+```
+sudo apt update && sudo apt -y install git
+```
 
 Clone this repository:
+```
+git clone https://github.com/LABORA-INF-UFG/NetSoft2020-Tutorial4-Demo1-Exp1.git
+```
 
 Install Ansible:
+```
+sudo apt update && sudo apt -y install git
+```
 
-**Caution!** The following playbook removes any previous version of Docker already installed in the system before installing the default one. 
-Run the Ansible playbook:
+**Caution!** The following playbook removes any previous version of Docker already installed in the system before installing the official one (from https://download.docker.com).
+
+Run the following Ansible playbook (password for sudo is required):
+```
+cd NetSoft2020-Tutorial4-Demo1-Exp1 && ansible-playbook -K Demo1Exp1.yml
+```
 
 Check if the containers are running:
 
