@@ -112,13 +112,15 @@ The output should be similar to the following (with 4 interfaces):
     <img src="images/ifconfig_ue_after_run.png"/> 
 </p>
 
------
+Still in the UE terminal, verify the connectivity with the eNB:
+```
+ping -I oaitun_ue1 10.0.1.1 -c 5
+```
 
-From the UE container, list the network interfaces and verify the new ones:
-
-From the eNB container, list the network interfaces and verify the new ones:
-
-From the UE container, verify if the eNB is reachable:
+The output should be similar to the following:
+<p align="center">
+    <img src="images/ping_ue.png"/> 
+</p>
 
 ## Additional comments
 
