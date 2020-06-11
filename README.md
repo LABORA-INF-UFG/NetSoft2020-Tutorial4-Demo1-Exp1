@@ -16,12 +16,13 @@ The installation can be done directly over the host operating system (OS) or ins
 
 **Steps**
 
-Install Ansible:
-
 Install git:
 
 Clone this repository:
 
+Install Ansible:
+
+**Caution!** The following playbook removes any previous version of Docker already installed in the system before installing the default one. 
 Run the Ansible playbook:
 
 Check if the containers are running:
