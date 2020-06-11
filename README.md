@@ -109,7 +109,7 @@ sleep 10 && ifconfig
 
 The output should be similar to the following (with 4 interfaces):
 <p align="center">
-    <img src="images/ifconfig_enb_after_run.png"/> 
+    <img src="images/ifconfig_ue_after_run.png"/> 
 </p>
 
 -----
