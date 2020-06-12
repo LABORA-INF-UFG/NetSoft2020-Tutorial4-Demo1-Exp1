@@ -119,13 +119,13 @@ ping -I oaitun_ue1 10.0.1.1 -c 5
 ```
 
 The output should be similar to the following:
-<p align="center">
-    <img src="images/ping_ue.png"/> 
+<p align="left">
+    <img src="images/ping_ue.png" width="500"/> 
 </p>
 
 ## Additional comments
 
-
+UE and eNodeB (eNB) are simulated by OpenAirInterface (OAI) [L2 nFAPI Simulator](https://gitlab.eurecom.fr/oai/openairinterface5g/-/blob/develop/doc/L2NFAPI.md). This simulator allows to test L2 and above Layers using the nFAPI interface. Here, we used the noS1 mode, i.e., without a core.
 
 <!-- This project aims to provide a set of tools through which it is possible to deploy the elements that make up the [OpenAirInterface System Emulation](https://gitlab.eurecom.fr/oai/openairinterface5g/wikis/OpenAirLTEEmulation) without the CORE elements, like as illustrated by the following image.
 <p align="center">
