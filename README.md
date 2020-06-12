@@ -64,8 +64,8 @@ ifconfig
 ```
 
 The output should be similar to the following (with only 2 interfaces):
-<p align="center">
-    <img src="images/ifconfig_enb_before_run.png"/> 
+<p align="left">
+    <img src="images/ifconfig_enb_before_run.png" width="500"/> 
 </p>
 
 Access the UE container:
@@ -79,8 +79,8 @@ ifconfig
 ```
 
 The output should be similar to the following (with only 2 interfaces):
-<p align="center">
-    <img src="images/ifconfig_ue_before_run.png"/> 
+<p align="left">
+    <img src="images/ifconfig_ue_before_run.png" width="500"/> 
 </p>
 
 In the eNB terminal, start the eNB software:
@@ -94,8 +94,8 @@ sleep 10 && ifconfig
 ```
 
 The output should be similar to the following (with 4 interfaces):
-<p align="center">
-    <img src="images/ifconfig_enb_after_run.png"/> 
+<p align="left">
+    <img src="images/ifconfig_enb_after_run.png" width="500"/> 
 </p>
 
 In the UE terminal, start the UE software:
@@ -109,8 +109,8 @@ sleep 10 && ifconfig
 ```
 
 The output should be similar to the following (with 4 interfaces):
-<p align="center">
-    <img src="images/ifconfig_ue_after_run.png"/> 
+<p align="left">
+    <img src="images/ifconfig_ue_after_run.png" width="500"/> 
 </p>
 
 Still in the UE terminal, verify the connectivity with the eNB:
