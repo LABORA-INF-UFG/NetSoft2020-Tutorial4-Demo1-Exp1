@@ -31,8 +31,6 @@ Install Ansible:
 sudo apt -y install ansible
 ```
 
-**Caution!** The following playbook removes any previous version of Docker already installed in the system before installing the official one (from https://download.docker.com).
-
 Run the following Ansible playbook (password for sudo is required):
 ```
 cd NetSoft2020-Tutorial4-Demo1-Exp1 && ansible-playbook -K Demo1Exp1.yml
