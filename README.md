@@ -2,7 +2,7 @@
 
 ## Expected result
 
-After installation, two containers are available: one running the UE and other running the eNB. As illustrated in the figure below, UE can communicate with eNB through the IP stack, i.e., conventional tools such 'ping' or 'iperf' must work. This environment is useful for studies relatated to RAN in general, e.g., LTE protocol.
+After installation, two containers are available: one running the UE and other running the eNB. As illustrated in the figure below, UE can communicate with eNB through the IP stack, i.e., conventional tools such 'ping' or 'iperf' must work. This environment is useful for studies relatated to RAN in general, e.g., LTE protocol stack.
 <p align="center">
     <img src="images/demo1-exp1.png"/> 
 </p>
@@ -125,7 +125,9 @@ The output should be similar to the following:
 
 ## Additional comments
 
-UE and eNodeB (eNB) are simulated by OpenAirInterface (OAI) [L2 nFAPI Simulator](https://gitlab.eurecom.fr/oai/openairinterface5g/-/blob/develop/doc/L2NFAPI.md). This simulator allows to test L2 and above Layers using the nFAPI interface. Here, we used the noS1 mode, i.e., without a core.
+UE and eNodeB (eNB) are simulated by OpenAirInterface (OAI) [L2 nFAPI Simulator](https://gitlab.eurecom.fr/oai/openairinterface5g/-/blob/develop/doc/L2NFAPI.md). This simulator allows to test L2 and above Layers using the [nFAPI](https://scf.io/en/documents/082_-_nFAPI_and_FAPI_specifications.php) interface. 
+
+In this experiment, we used the simulator in the 'noS1' mode, i.e., RAN without core.
 
 <!-- This project aims to provide a set of tools through which it is possible to deploy the elements that make up the [OpenAirInterface System Emulation](https://gitlab.eurecom.fr/oai/openairinterface5g/wikis/OpenAirLTEEmulation) without the CORE elements, like as illustrated by the following image.
 <p align="center">
