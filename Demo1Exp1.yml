@@ -8,7 +8,7 @@
         num_ues_init_config_file: '8'
         docker_custom_subnet_network: '192.188.2.0/24'
         docker_custom_network_name: 'NetSoft2020Tutorial4'
-        BASE_DIR_INSTALL: '/root/NetSoft2020Tutorial4'
+        BASE_DIR_INSTALL: 'NetSoft2020Tutorial4'
         ip_address_inactive_AMF: '192.188.2.2'
         ip_address_OAISIM_ENB: '192.188.2.253'
         ip_address_OAISIM_UE: '192.188.2.254'
@@ -128,7 +128,7 @@
 
         - name  : Build enB rcc.band7.tm1.nfapi.conf file 2/3
           copy  :
-            dest: "{{ BASE_DIR_INSTALL }}/rcc.band7.tm1.nfapi.conf"
+            dest: "/root/{{ BASE_DIR_INSTALL }}/rcc.band7.tm1.nfapi.conf"
             content: |
                 Active_eNBs = ( "Computer Networks and Distributed Systems LABORAtory https://labora.inf.ufg.br - Brazil");
                 # Asn1_verbosity, choice in: none, info, annoying
@@ -394,7 +394,7 @@
 
         - name  : Build UE ue.nfapi.conf file 2/3
           copy:
-            dest: "{{ BASE_DIR_INSTALL }}/ue.nfapi.conf"
+            dest: "/root/{{ BASE_DIR_INSTALL }}/ue.nfapi.conf"
             content: |
                 log_config = {
                   global_log_level                      ="info";
@@ -453,7 +453,7 @@
 
         - name  : Build UE ue_eurecom_test_sfr.conf file 2/5 
           copy:
-            dest: "{{ BASE_DIR_INSTALL }}/ue_eurecom_test_sfr.conf"
+            dest: "/root/{{ BASE_DIR_INSTALL }}/ue_eurecom_test_sfr.conf"
             content: |
                 # List of known PLMNS
                 PLMN: {
