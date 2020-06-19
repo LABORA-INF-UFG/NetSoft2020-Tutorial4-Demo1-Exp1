@@ -57,8 +57,9 @@
                 update_cache: yes
                 
         - name  : Create dir instalation
-          shell :  |
-                mkdir {{ BASE_DIR_INSTALL }}
+          file  :
+            path: "{{ BASE_DIR_INSTALL }}"
+            state: directory
         
         - name  : Add Docker GPG key into apt
           apt_key: url=https://download.docker.com/linux/ubuntu/gpg
