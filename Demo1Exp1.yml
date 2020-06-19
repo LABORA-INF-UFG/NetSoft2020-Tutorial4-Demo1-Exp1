@@ -25,14 +25,6 @@
         user_equiments:
             - { ue_id: UE0 ,   msin: '0000000001' }
             - { ue_id: UE1 ,   msin: '0000000002' }
-            - { ue_id: UE2 ,   msin: '0000000003' }
-            - { ue_id: UE3 ,   msin: '0000000004' }
-            - { ue_id: UE4 ,   msin: '0000000005' }
-            - { ue_id: UE5 ,   msin: '0000000006' }
-            - { ue_id: UE6 ,   msin: '0000000007' }
-            - { ue_id: UE7 ,   msin: '0000000008' }
-            - { ue_id: UE8 ,   msin: '0000000009' }
-            - { ue_id: UE9 ,   msin: '0000000010' }
     tasks:
         - name: Environment validation!
           assert:
