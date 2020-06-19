@@ -129,7 +129,7 @@
 
         - name  : Build enB rcc.band7.tm1.nfapi.conf file 2/3
           copy  :
-            dest: "/root/{{ BASE_DIR_INSTALL }}/rcc.band7.tm1.nfapi.conf"
+            dest: "{{ BASE_DIR_INSTALL }}/rcc.band7.tm1.nfapi.conf"
             content: |
                 Active_eNBs = ( "Computer Networks and Distributed Systems LABORAtory https://labora.inf.ufg.br - Brazil");
                 # Asn1_verbosity, choice in: none, info, annoying
@@ -395,7 +395,7 @@
 
         - name  : Build UE ue.nfapi.conf file 2/3
           copy:
-            dest: "/root/{{ BASE_DIR_INSTALL }}/ue.nfapi.conf"
+            dest: "{{ BASE_DIR_INSTALL }}/ue.nfapi.conf"
             content: |
                 log_config = {
                   global_log_level                      ="info";
@@ -454,7 +454,7 @@
 
         - name  : Build UE ue_eurecom_test_sfr.conf file 2/5 
           copy:
-            dest: "/root/{{ BASE_DIR_INSTALL }}/ue_eurecom_test_sfr.conf"
+            dest: "{{ BASE_DIR_INSTALL }}/ue_eurecom_test_sfr.conf"
             content: |
                 # List of known PLMNS
                 PLMN: {
@@ -536,7 +536,7 @@
 
         - name  : Build UE ue_eurecom_test_sfr.conf file 3/5
           blockinfile:
-            path: /root/{{ BASE_DIR_INSTALL }}/ue_eurecom_test_sfr.conf
+            path: ./{{ BASE_DIR_INSTALL }}/ue_eurecom_test_sfr.conf
             block: |
                 {{ item.ue_id }}:
                   {
