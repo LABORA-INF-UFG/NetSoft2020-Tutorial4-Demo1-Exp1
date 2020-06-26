@@ -133,3 +133,9 @@ The output should be similar to the following:
 UE and eNodeB (eNB) are simulated by OpenAirInterface (OAI) [L2 nFAPI Simulator](https://gitlab.eurecom.fr/oai/openairinterface5g/-/blob/develop/doc/L2NFAPI.md). This simulator allows to test L2 and above Layers using the [nFAPI](https://scf.io/en/documents/082_-_nFAPI_and_FAPI_specifications.php) interface. 
 
 In this experiment, we used the simulator in the 'noS1' mode, i.e., RAN without core.
+
+Despite we'd simulated just one UE within here, you might run multiple UEs with the UE container. To do that you should modify the parameter '--num-ues' putting the desired UE number when running the command to start the UE software.
+
+To create a different topology you need to modify the [Demo1Exp1.yml](https://github.com/LABORA-INF-UFG/NetSoft2020-Tutorial4-Demo1-Exp1/blob/master/Demo1Exp1.yml) file.
+
+
